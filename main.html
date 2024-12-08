@@ -16,6 +16,7 @@
 </body>
 <script src="tty.js"></script>
 <script type="module">
+    let solver = false
     await sleep(1000)
     if (getCookieValue("login") != "true") {
         ttyPrint("ERROR: you are not logged in.")
