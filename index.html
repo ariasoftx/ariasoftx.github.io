@@ -1,1 +1,59 @@
-good things will be here
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="cnt"><img class="logo" src="" alt=""><span class="txlogo">ariasoft</span></div><br>
+    <span class="tty">
+    </span>
+    <span class="cursor">_</span>
+</body>
+<script src="tty.js"></script>
+<script type="module">
+    let tty = document.querySelector(".tty")
+    await ttyPrint(`
+    BIOSTAR
+
+    RAM: 16,374,495K
+    CPU: Intel (R) Core i9-14900k
+    
+    Booting hd0...
+    `)
+    await sleep(1400)
+    ttyClear()
+    await ttyPrint(`wdOS v1.0
+
+    Patch: 1.8 ${(solver == true ? "Absolute Solver" : "")}
+    S/N: ${(solver == true ? "N-0X0010010" : "WD-0X1101011")}
+
+    copyright 2024 ariasoft corp.
+
+    Welcome Back, ${(solver == true ? "N" : "Uzi")}! 
+    `)
+    if (getCookieValue("login") != "true") {
+        await ttyPrint(`\npassword:`)
+        await ttyNPrint(`<input type="text" id="pass" autofocus><button>login</button>`)
+        document.querySelector("button").addEventListener("click", async () => {
+            if (document.querySelector("#pass").value == ASe8Decode("115-117-99-107-109-121-100-105-99-107")) {
+                document.cookie = "login=true"
+                ttyPrint("\n\naccess granted! logging in...")
+                await sleep(2000)
+                location.href = "main.html"
+            } else {
+                ttyPrint("\n\naccess denied. try again")
+            }
+        })
+    } else {
+        ttyPrint(`\nlogging in...`)
+        await sleep(2000)
+        location.href = "main.html"
+    }
+</script>
+
+</html>

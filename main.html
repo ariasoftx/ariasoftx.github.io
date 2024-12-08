@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="cnt"><img class="logo" src="" alt=""><span class="txlogo">ariasoft</span></div><br>
+    <span class="tty">
+    </span>
+    <span class="cursor">_</span>
+</body>
+<script src="tty.js"></script>
+<script type="module">
+    await sleep(1000)
+    if (getCookieValue("login") != "true") {
+        ttyPrint("ERROR: you are not logged in.")
+        await sleep(2000)
+        location.href = "index.html"
+    }
+    await ttyNPrint(`<span class="hdr">homepage</span>`)
+    await ttyPrint("\n\nits good to mention that this website is sponsored by ")
+    //await ttyPrint("MD\n\n")
+    ttyNPrint(`<span><span style="color: red;">Jc</span><span style="color: white;" >Jenson</span></span>\n`)
+
+    await ttySNPrint(`<span class="h3"><a href="#">taliban news international</a></span>
+    two idiots went fishing in a dry pond and catched nothing!!! LOL
+    `, 100)
+    await ttySNPrint(`<span class="h3"><a href="#">Voice of Afghanistan (VOA)</a></span>
+    a migrant rejected chips from teacher
+    `, 100)
+    await ttySNPrint(`<span class="h3"><a href="#">validi's islamic bullshit</a></span>
+    a fucking idiot by the of khalid will try to make nasa islamic and 6x7=48
+    `, 100)
+    await ttySNPrint(`<span class="h3"><a href="#">Jamalism</a></span>
+    the good words of jamal and jamalism
+    no ex no next for me jamal is the best
+    `, 100)
+    await ttySNPrint(`<span class="h3"><a href="#">Karl Marx (Worker Afshin)</a></span>
+    we shall rename naisar to binandehgrad and spread his bullshit ideology
+    `, 100)
+    await ttySNPrint(`<span class="h3"><a href="#">Validi’s Islamic Nasa</a></span>
+    Nasa is now Islamic...
+    `, 100)
+    await ttySNPrint(`<span class="h3"><a href="#">YadeGanKar 1</a></span>
+    yade goes to mars
+    `, 100)
+</script>
+
+</html>

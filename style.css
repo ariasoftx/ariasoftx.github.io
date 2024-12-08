@@ -1,0 +1,74 @@
+@font-face {
+    font-family: pixel;
+    src: url("Minecraft.ttf");
+}
+
+:root {
+    --text: #cb8bff;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    border: var(--text) 1px solid;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    color: var(--text);
+}
+html{
+    overflow-x: hidden;
+}
+body {
+    background-color: black;
+    font-size: 18px;
+    text-shadow: 0px 0px 4px var(--text);
+}
+
+.hdr {
+    font-size: 35px;
+}
+
+.h3 {
+    font-size: 20px;
+}
+
+
+.logo {
+    max-width: 100px;
+}
+
+.txlogo {
+    font-family: arial;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 45px;
+}
+
+.cnt {
+    display: flex;
+    align-items: center;
+}
+#pass{
+    border: none;
+    background: none;
+    font-size: 18px;
+}
+#pass:focus{
+    outline: none;
+}
+button{
+    border: 1px solid var(--text);
+    padding: 3px;
+    background-color: black;
+    cursor: pointer;
+}
