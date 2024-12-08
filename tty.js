@@ -1,5 +1,5 @@
 let blink = true
-let solver = true
+let solver = false
 if (solver == true) {
     document.querySelector(".logo").src = "AbsoluteSolverIcon.svg"
     document.querySelector(":root").style.setProperty("--text", "#ffc500")
