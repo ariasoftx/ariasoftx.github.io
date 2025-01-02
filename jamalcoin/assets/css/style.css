@@ -3,6 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+    --bgcolor:aqua;
+}
+.adder{
+    font-size: 40px;
+    color: white;
+    font-weight: 900;
+    position: absolute;
+    display: none;
+    z-index: 1000;
+}
 a {
     text-decoration: none;
 }
@@ -19,7 +30,7 @@ html {
 }
 body {
     background: radial-gradient(circle, rgba(209,213,223,1) 0%, rgba(123,130,149,1) 15%, rgb(0, 0, 0) 75%);
-    background: radial-gradient(circle, rgba(253,237,201,1) 0%, aqua 15%, rgba(23,23,23,1) 75%);
+    background: radial-gradient(circle, rgba(253,237,201,1) 0%, var(--bgcolor) 15%, rgba(23,23,23,1) 75%);
     /* background: radial-gradient(circle, rgba(190,201,233,1) 0%, rgba(95,107,189,1) 15%, rgba(23,23,23,1) 75%); */
     /* background: radial-gradient(circle, rgba(122,230,243,1) 10%, rgba(31,118,191,1) 25%, rgba(23,23,23,1) 75%); */
     /* background: radial-gradient(circle, rgba(205,122,243,1) 0%, rgba(154,31,191,1) 15%, rgba(23,23,23,1) 75%); */

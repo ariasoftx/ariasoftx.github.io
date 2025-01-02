@@ -33,7 +33,27 @@ if(power == null){
 if(count == null){
     localStorage.setItem('count' , '1')
 }
-
+if(!localStorage.getItem("mul")){
+    localStorage.setItem("mul","1")
+}
+if(localStorage.getItem("mul") == "5"){
+    document.querySelector(":root").style.setProperty("--bgcolor","purple")
+    document.querySelector(".adder").innerHTML="+5"
+    setTimeout(()=>{
+        localStorage.setItem("mul","1")
+        document.querySelector(":root").style.setProperty("--bgcolor","aqua")
+        document.querySelector(".adder").innerHTML="+1"
+    },20000)
+}
+if(localStorage.getItem("mul") == "23234"){
+    document.querySelector(":root").style.setProperty("--bgcolor","red")
+    document.querySelector(".adder").innerHTML="+23234"
+    setTimeout(()=>{
+        localStorage.setItem("mul","1")
+        document.querySelector(":root").style.setProperty("--bgcolor","aqua")
+        document.querySelector(".adder").innerHTML="+1"
+    },20000)
+}
 image.addEventListener('click' , (e)=> {
 
     let x = e.offsetX;
@@ -46,9 +66,12 @@ image.addEventListener('click' , (e)=> {
     power = localStorage.getItem('power');
     
     if(Number(power) > 0){
-        localStorage.setItem('coins' , `${Number(coins) + 1}`);
+        localStorage.setItem('coins' , `${Number(coins) + 1 + parseInt(localStorage.getItem("mul"))}`);
         h1.textContent = `${(Number(coins) + 1).toLocaleString()}`;
-    
+        document.querySelector(".adder").style.display = "block"
+        setTimeout(()=>{
+            document.querySelector(".adder").style.display = "none"
+        },250)
         localStorage.setItem('power' , `${Number(power) - 1}`);
         body.querySelector('#power').textContent = `${Number(power) - 1}`;
     } 
@@ -83,3 +106,9 @@ setInterval(()=> {
         body.querySelector('.progress').style.width = `${(100 * power) / total}%`;
     }
 }, 1000);
+
+document.body.addEventListener("mousemove",(a)=>{
+    let adder = document.querySelector(".adder")
+    adder.style.top = a.clientY-70+"px"
+    adder.style.left = a.clientX+0+"px"
+})
