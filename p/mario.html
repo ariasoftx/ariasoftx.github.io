@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .user{
+            position: absolute; 
+            left: 10%; 
+            bottom: 0;
+            width: 100px; 
+            height: 100px; 
+            background: url("photo_2024-11-20_22-58-39.jpg"); 
+        }
+    </style>
+</head>
+<body>
+    <div class="user"></div>
+    <script src="jq.js"></script>
+    <script>
+        $(document).ready(function(){
+			
+            var mUp=false;
+            var mUpInProgress = false;
+            var mLeft=false;
+            var mRight=false;
+            
+            function movement(){
+                $(function(){
+                    if(mUp && !mUpInProgress){
+                        mUpInProgress = true;
+                        $('.user').animate({
+                            bottom: '+=120'
+                        },{
+                            duration: 150,
+                            easing: 'linear',
+                            complete: function() {
+                                $('.user').animate({
+                                    bottom: '-=120'
+                                },{
+                                    duration: 150,
+                                    easing: 'linear',
+                                    complete: function() {
+                                        mUp=false;
+                                        mUpInProgress = false;
+                                        if(!mRight&&!mLeft){
+                                            $('.user').stop();
+                                        }
+                                    }
+                                }).dequeue();
+                            }
+                        }).dequeue();
+                    }
+                    
+                    if(mRight){
+                        $('.user').animate({
+                            left: '+=500'
+                        },{
+                            duration: 1000,
+                            easing: 'linear',
+                        }).dequeue();
+                    }
+                    
+                    if(mLeft){
+                        $('.user').animate({
+                            left: '-=500'
+                        },{
+                            duration: 1000,
+                            easing: 'linear',
+                        }).dequeue();
+                    }
+                });
+            }
+            
+            
+            
+            $(document).keydown(function(e){
+                var curKey=e.keyCode;
+                if(curKey==39){
+                    console.log('right+');
+                    if(!mRight){
+                        mRight=true;
+                        movement();
+                    }
+                }
+                if(curKey==37){
+                    if(!mLeft){
+                        mLeft=true;
+                        movement();
+                    }
+                }
+                if(curKey==38){
+                    console.log('up+');
+                    if(!mUp){
+                        mUp=true;
+                        movement();
+                    }
+                }
+            });
+            
+            $(document).keyup(function(e){
+                var curKey=e.keyCode;
+                if(curKey==39){
+                    console.log('right-');
+                    if(!mUp){
+                        $('.user').stop();
+                    }
+                    mRight=false;
+                }
+                if(curKey==37){
+                    console.log('left-');
+                    if(!mUp){
+                        $('.user').stop();
+                    }
+                    mLeft=false;
+                }
+                if(curKey==38){
+                    console.log('up-');
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
