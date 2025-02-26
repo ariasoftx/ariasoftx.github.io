@@ -19,7 +19,7 @@ document.querySelector("#hboost").addEventListener("click",()=>{
     hba+=1
     if(hba == 5){
         hba = 0
-        localStorage.setItem("mul","23234")
+        localStorage.setItem("mul","14823234")
         location.href = "index.html"
     }
 })
